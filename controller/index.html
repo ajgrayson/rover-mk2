@@ -25,20 +25,53 @@
     color: #000;
     background-color: #00FF00;
   }
+  .conn-status {
+    font-family:monospace;
+    padding: 5px;
+  }
+  .connected {
+    background-color: #00ff00;
+    color: #000;
+  }
+  .disconnected {
+    background-color: #ff0000;
+    color: #fff;
+  }
+  #stop {
+    width:200px;
+    height: 60px;
+  }
+  #log {
+    width:200px;
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #000;
+    font-family: arial;
+    padding: 1px;
+  }
+  #log .entry {
+    font-size: 14px;
+    padding: 5px;
+    border-bottom:1px solid #333;
+    margin-bottom: 1px;
+  }
+  #log .pending {
+    color: #000;
+    background-color: #ccc;
+  }
+  #log .success {
+    color: #000;
+    background-color: #00ff00;
+  }
+  #log .failed {
+    color: #fff;
+    background-color: #ff0000;
+  }
   </style>
 </head>
 <body>
 
-<h2>Spybot Alfred, at your service!</h2>
-<br />
-<div>
-<input type="number" id="cmd-left" value="0" max="255" min="-255"/>
-<input type="number" id="cmd-right" value="0" max="255" min="-255" />
-</div>
-<br />
-<div>
-<button id="stop">STOP</button>
-</div>
+<div class="conn-status" id="conn-status">...</div>
 <br />
 <div>Enter command</div>
 <div>
@@ -62,7 +95,15 @@
   <td></td>
 </tr>
 </table>
+<br />
+<div>
+<button id="stop">STOP</button>
+</div>
+<br />
+Command Log:
+<div id="log">
 
+</div>
 <script src="jquery-3.1.0.js"></script>
 <script src="custom.js"></script>
 
